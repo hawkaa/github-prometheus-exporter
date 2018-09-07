@@ -1,9 +1,9 @@
 package main
 
 import (
-	"fmt"
+	log "github.com/sirupsen/logrus"
 )
 
 func main() {
-	fmt.Println("Starting github-prometheus-exporter...")
+	log.Println("Starting github-prometheus-exporter...")
 }
