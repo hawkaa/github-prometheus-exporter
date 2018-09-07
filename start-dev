@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if ! type "CompileDaemon" > /dev/null; then
+    go get -u github.com/githubnemo/CompileDaemon
+fi
+
+mkdir -p dist
+
+CompileDaemon \
+    -exclude-dir=.git \
+    -exclude-dir=dist \
+    -exclude-dir=vendor \
+    -graceful-kill=true \
+    -log-prefix=false \
+    -build="go build -o dist/server ./main.go" \
+    -command="./dist/server"
