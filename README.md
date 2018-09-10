@@ -1,7 +1,12 @@
 # github-prometheus-exporter
-Exporter to export github stats to Prometheus.
+Exporter to export github stats to Prometheus, written by a guy who doesn't know
+golang.
 
-## Hacknig
+## Limitations
+Currently only one metric available: The number of lines in `README.md` in the
+root of each (hard coded) repository. The data is provided by the `readme` GitHub API ([https://developer.github.com/v3/repos/contents/#get-the-readme](https://developer.github.com/v3/repos/contents/#get-the-readme)).
+
+## Hacking
 Dependencies:
 ```
 dep ensure
