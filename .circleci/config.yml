@@ -10,6 +10,8 @@ jobs:
       - restore_cache:
           key: cache1-{{ checksum "Gopkg.lock" }}
       - run: dep ensure
+      - run: go build
+      - run: go test ./...
       - save_cache:
           key: cache1-{{ checksum "Gopkg.lock" }}
           paths:
