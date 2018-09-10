@@ -22,6 +22,7 @@ var repos = []string{
 }
 
 func main() {
+	var repos []string
 	var token string
 	var rootCmd = &cobra.Command{
 		Use: "github-prometheus-exporter",
@@ -35,7 +36,8 @@ func main() {
 			log.Fatal(http.ListenAndServe(fmt.Sprintf("0.0.0.0:%d", port), nil))
 		},
 	}
-	rootCmd.Flags().StringVarP(&token, "github-token", "t", os.Getenv("GITHUB_TOKEN"), "Github Token")
+	rootCmd.Flags().StringVarP(&token, "github-token", "t", os.Getenv("GITHUB_TOKEN"), "GitHub Token")
+	rootCmd.Flags().StringArrayVarP(&repos, "repo", "r", []string{}, "list of GitHub repositories")
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)
 		os.Exit(1)
