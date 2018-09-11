@@ -9,12 +9,12 @@ root of each (hard coded) repository. The data is provided by the `readme` GitHu
 ## Usage
 Build:
 ```
-go build
+$ go build
 ```
 
 Run:
 ```
-./github-prometheus-exporter --github-token <token> -r <repo 1> ... -r <repo n>
+$ ./github-prometheus-exporter --github-token <token> -r <repo 1> ... -r <repo n>
 ```
 where `<token>` is the GitHub application token and `<repo x>` is a list of
 GitHub repositories (i.e. `hawkaa/CloakedMailman).
@@ -22,11 +22,12 @@ GitHub repositories (i.e. `hawkaa/CloakedMailman).
 ## Usage (docker)
 Build:
 ```
-docker build . -t github-prometheus-exporter
+$ docker build . -t github-prometheus-exporter
 ````
 Run:
 ```
-docker run -p 8080:8080 github-prometheus-exporter
+$ docker run -p 8080:8080 github-prometheus-exporter --github-token <token> -r \
+ <repo 1> ... -r <repo n>
 ```
 
 ## Hacking
