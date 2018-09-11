@@ -63,7 +63,6 @@ func (exporter *Exporter) Collect(ch chan<- prometheus.Metric) {
 }
 
 func getRepoReadmeLength(url string) (int, error) {
-	log.Infof("Querying %s", url)
 	resp, err := http.Get(url)
 	if err != nil {
 		return 0, errors.New("Unable to query API")
