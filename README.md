@@ -19,6 +19,15 @@ Run:
 where `<token>` is the GitHub application token and `<repo x>` is a list of
 GitHub repositories (i.e. `hawkaa/CloakedMailman).
 
+## Usage (docker)
+Build:
+```
+docker build . -t github-prometheus-exporter
+````
+Run:
+```
+docker run -p 8080:8080 github-prometheus-exporter
+```
 
 ## Hacking
 Dependencies:
