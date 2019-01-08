@@ -1,5 +1,6 @@
-FROM golang:1.11.0 AS build
-WORKDIR /go/src/github.com/hawkaa/github-prometheus-exporter/
+FROM golang:1.11.2 AS build
+RUN mkdir /github-prometheus-exporter
+WORKDIR /github-prometheus-exporter
 COPY . .
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -installsuffix \
     cgo -o /bin/github-prometheus-exporter
