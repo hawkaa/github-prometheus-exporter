@@ -3,16 +3,14 @@ version: 2
 jobs:
   build:
     docker: 
-      - image: circleci/golang:1.11
-    working_directory: /go/src/github.com/hawkaa/github-prometheus-exporter
+      - image: circleci/golang:1.11.2
     steps:
       - checkout
       - restore_cache:
-          key: cache1-{{ checksum "Gopkg.lock" }}
-      - run: dep ensure
+          key: cache1-{{ checksum "go.sum" }}
       - run: go build
       - run: go test ./...
       - save_cache:
-          key: cache1-{{ checksum "Gopkg.lock" }}
+          key: cache1-{{ checksum "go.sum" }}
           paths:
-            - ./vendor
+            - "/go/pkg/mod"
